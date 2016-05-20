@@ -104,6 +104,10 @@ object driver {
      val finalwLocalSGD = SGD.runSGD(data, params, debug, local=true)
      OptUtils.printSummaryStats("Local SGD", data, finalwLocalSGD, lambda, testData)
 
+     // run DistGD
+     val finalwDistGD = DistGD.runDistGD(data, params, debug)
+     OptUtils.printSummaryStats("Dist SGD", data, finalwDistGD, lambda, testData)
+
     }
 
     sc.stop()
